@@ -160,24 +160,24 @@ function addUserData($user_list){
      if(date('d') != 01  || ( (date('d') != 28)&&(date('m') != 02) ) || ( (date('d') != 29)&&(date('m') != 02) ) || (date('d') != 30) || (date('d') != 31)){
         if($dbcount==0){
             if($points_in_db != $user_list[$i]->points){
-                $qry="INSERT INTO `daily_update`(`r_date`, `uid`, `points`, `rank`) VALUES ('". date("Y-m-d") ."','".$user_list[$i]->id."',".$user_list[$i]->points.",".($i+1).")";
+                $qry="INSERT INTO `daily_update`(`r_date`, `uid`, `points`) VALUES ('". date("Y-m-d") ."','".$user_list[$i]->id."','".$user_list[$i]->points."')";
                 $res=mysqli_query($link,$qry) or die (mysqli_error($link));
             }
         }
         else{
             if($points_in_db != $user_list[$i]->points){
-                $qry="UPDATE `daily_update` SET  `points`=".$user_list[$i]->points.", `rank`=".($i+1)." WHERE `uid`='".$user_list[$i]->id."' AND `r_date`='". date("Y-m-d") ."'";
+                $qry="UPDATE `daily_update` SET  `points`=".$user_list[$i]->points." WHERE `uid`='".$user_list[$i]->id."' AND `r_date`='". date("Y-m-d") ."'";
                 $res=mysqli_query($link,$qry) or die (mysqli_error($link));
             }
         }
       }
       else if((date('d') == 01) || ( (date('d') == 28)&&(date('m') == 02) ) || ( (date('d') == 29)&&(date('m') == 02) ) || (date('d') == 30) || (date('d') == 31)){
         if($dbcount==0){
-          $qry="INSERT INTO `daily_update`(`r_date`, `uid`, `points`, `rank`) VALUES ('". date("Y-m-d") ."','".$user_list[$i]->id."',".$user_list[$i]->points.",".($i+1).")";
+          $qry="INSERT INTO `daily_update`(`r_date`, `uid`, `points`) VALUES ('". date("Y-m-d") ."','".$user_list[$i]->id."','".$user_list[$i]->points."' )";
           $res=mysqli_query($link,$qry) or die (mysqli_error($link));
         }
         else{
-          $qry="UPDATE `daily_update` SET  `points`=".$user_list[$i]->points.", `rank`=".($i+1)." WHERE `uid`='".$user_list[$i]->id."' AND `r_date`='". date("Y-m-d") ."'";
+          $qry="UPDATE `daily_update` SET  `points`=".$user_list[$i]->points." WHERE `uid`='".$user_list[$i]->id."' AND `r_date`='". date("Y-m-d") ."'";
           $res=mysqli_query($link,$qry) or die (mysqli_error($link));
         }
       }
