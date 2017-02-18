@@ -4,7 +4,7 @@ start_script();
 
 function start_script(){
   //include("userclass.php");
-  $link = mysqli_connect('localhost','root','','mini');
+  $link = mysqli_connect('localhost','root','','camperbot');
     if (!$link) {
       die('Could not connect to MySQL: ' . mysqli_error());
     }
@@ -98,7 +98,7 @@ function start_script(){
 
 function addUserData($user_list){
   $total_points=0;
-  $link = mysqli_connect('localhost','root','','mini');
+  $link = mysqli_connect('localhost','root','','camperbot');
     if (!$link) {
       die('Could not connect to MySQL: ' . mysqli_error());
     }
@@ -192,7 +192,7 @@ function addUserData($user_list){
   function userUpdate($user_count){
         $ini_array= parse_ini_file("configure.ini");
 
-        $link = mysqli_connect('localhost','root','','mini');
+        $link = mysqli_connect('localhost','root','','camperbot');
           if (!$link) {
             die('Could not connect to MySQL: ' . mysqli_error());
           }
@@ -239,7 +239,7 @@ function addUserData($user_list){
 
 
   function dailyUpdate($total_points,$user_count){
-    $link = mysqli_connect('localhost','root','','mini');
+    $link = mysqli_connect('localhost','root','','camperbot');
       if (!$link) {
         die('Could not connect to MySQL: ' . mysqli_error());
       }
@@ -310,7 +310,7 @@ function addUserData($user_list){
 
 //mytest code
   function createRankList($user_list){
-    $link = mysqli_connect('localhost','root','','mini');
+    $link = mysqli_connect('localhost','root','','camperbot');
     if (!$link) {
       die('Could not connect to MySQL: ' . mysqli_error());
     }
